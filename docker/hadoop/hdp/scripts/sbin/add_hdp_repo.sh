@@ -31,22 +31,22 @@ case "${1}" in
     ubuntu_repo_version="14"
     ;;
   2.5)
-    major_version="3"
+    major_version="2"
     hdp_version="2.5.6.0"
     ubuntu_repo_version="14"
     ;;
   2.4)
-    major_version="3"
+    major_version="2"
     hdp_version="2.4.3.0"
     ubuntu_repo_version="14"
     ;;
   2.3)
-    major_version="3"
+    major_version="2"
     hdp_version="2.3.6.0"
     ubuntu_repo_version="14"
     ;;
   2.2)
-    major_version="3"
+    major_version="2"
     hdp_version="2.2.9.0"
     ubuntu_repo_version="12"
     ;;
