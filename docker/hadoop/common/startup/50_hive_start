@@ -6,6 +6,9 @@ sudo -E -u hdfs hadoop fs -mkdir -p /user/hive/warehouse
 sudo -E -u hdfs hadoop fs -chmod a+w /user/hive/warehouse
 sudo -E -u hdfs hadoop fs -chmod a+w /tmp
 
+cd /home/hive
+sudo -E -u hive nohup ${HIVE_HOME}/bin/hiveserver2 > /home/hive/hive.log & sleep 15
+
 cd /home/jenkins
 # Download dataset and upload it to HDFS
 wget https://s3.amazonaws.com/h2o-public-test-data/smalldata/airlines/AirlinesTest.csv.zip
@@ -21,9 +24,5 @@ for f in $(ls); do
     sudo -E -u hive ${HIVE_HOME}/bin/beeline -u jdbc:hive2://localhost:10000 -f ${f}
 done
 
-cd /home/hive
 sudo -E -u hive hadoop fs -put -f ./AirlinesTest.csv /tmp/AirlinesTest.csv
 rm AirlinesTest.csv
-
-cd /home/hive
-sudo -E -u hive nohup ${HIVE_HOME}/bin/hiveserver2 > /home/hive/hive.log & sleep 15
